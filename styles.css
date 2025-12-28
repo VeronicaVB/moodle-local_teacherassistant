@@ -1,0 +1,405 @@
+/* Teacher Assistant Popup Styles */
+
+#teacherassistant-popup {
+    position: fixed;
+    z-index: 9999;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Minimized state - round icon button */
+#teacherassistant-popup.teacherassistant-minimized {
+    bottom: 30px;
+    right: 30px;
+}
+
+#teacherassistant-popup.teacherassistant-minimized .teacherassistant-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+#teacherassistant-popup.teacherassistant-minimized .teacherassistant-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+#teacherassistant-popup.teacherassistant-minimized .teacherassistant-toggle i {
+    font-size: 28px;
+}
+
+/* Expanded state - full popup */
+#teacherassistant-popup.teacherassistant-expanded {
+    bottom: 30px;
+    right: 30px;
+    width: 400px;
+    height: 600px;
+    max-height: calc(100vh - 100px);
+}
+
+#teacherassistant-popup.teacherassistant-expanded .teacherassistant-toggle {
+    display: none;
+}
+
+#teacherassistant-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+}
+
+/* Header */
+.teacherassistant-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.teacherassistant-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.teacherassistant-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.teacherassistant-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+.teacherassistant-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.teacherassistant-btn i {
+    font-size: 14px;
+}
+
+/* Body */
+.teacherassistant-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+}
+
+.teacherassistant-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.teacherassistant-message {
+    display: flex;
+    max-width: 80%;
+}
+
+.teacherassistant-message-user {
+    align-self: flex-end;
+}
+
+.teacherassistant-message-user .teacherassistant-message-content {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 16px 16px 4px 16px;
+}
+
+.teacherassistant-message-assistant {
+    align-self: flex-start;
+}
+
+.teacherassistant-message-assistant .teacherassistant-message-content {
+    background: #f0f0f0;
+    color: #333;
+    border-radius: 16px 16px 16px 4px;
+}
+
+.teacherassistant-message-content {
+    padding: 10px 14px;
+    font-size: 14px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+/* Input container */
+.teacherassistant-input-container {
+    padding: 16px 20px;
+    border-top: 1px solid #e0e0e0;
+    background: #fafafa;
+}
+
+.teacherassistant-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    resize: none;
+    margin-bottom: 10px;
+    transition: border-color 0.2s ease;
+}
+
+.teacherassistant-input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.teacherassistant-send-btn {
+    width: 100%;
+    padding: 10px 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.teacherassistant-send-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.teacherassistant-send-btn:active {
+    transform: translateY(0);
+}
+
+.teacherassistant-send-btn i {
+    margin-right: 6px;
+}
+
+/* Loading animation */
+.fa-spinner {
+    animation: fa-spin 1s infinite linear;
+}
+
+@keyframes fa-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Scrollbar styling */
+.teacherassistant-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.teacherassistant-messages::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.teacherassistant-messages::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+}
+
+.teacherassistant-messages::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #teacherassistant-popup.teacherassistant-expanded {
+        width: calc(100vw - 40px);
+        height: calc(100vh - 100px);
+        right: 20px;
+        bottom: 20px;
+    }
+
+    #teacherassistant-popup.teacherassistant-minimized {
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* Full Page Chat Styles */
+.teacherassistant-fullpage {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.teacherassistant-fullpage-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 300px);
+    min-height: 600px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.teacherassistant-fullpage-messages-wrapper {
+    flex: 1;
+    overflow-y: auto;
+    padding: 30px;
+    background: #f9f9f9;
+}
+
+.teacherassistant-fullpage-messages {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.teacherassistant-fullpage-message {
+    display: flex;
+    max-width: 70%;
+}
+
+.teacherassistant-fullpage-message-user {
+    align-self: flex-end;
+}
+
+.teacherassistant-fullpage-message-user .teacherassistant-fullpage-message-content {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 20px 20px 4px 20px;
+}
+
+.teacherassistant-fullpage-message-assistant {
+    align-self: flex-start;
+}
+
+.teacherassistant-fullpage-message-assistant .teacherassistant-fullpage-message-content {
+    background: white;
+    color: #333;
+    border-radius: 20px 20px 20px 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.teacherassistant-fullpage-message-content {
+    padding: 14px 18px;
+    font-size: 15px;
+    line-height: 1.6;
+    word-wrap: break-word;
+}
+
+.teacherassistant-fullpage-input-wrapper {
+    padding: 24px 30px;
+    background: white;
+    border-top: 1px solid #e0e0e0;
+}
+
+.teacherassistant-fullpage-input-wrapper > * {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.teacherassistant-fullpage-input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    resize: none;
+    margin-bottom: 12px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.teacherassistant-fullpage-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.teacherassistant-fullpage-send-btn {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    float: right;
+}
+
+.teacherassistant-fullpage-send-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.teacherassistant-fullpage-send-btn:active {
+    transform: translateY(0);
+}
+
+.teacherassistant-fullpage-send-btn i {
+    margin-right: 8px;
+}
+
+/* Scrollbar for fullpage */
+.teacherassistant-fullpage-messages-wrapper::-webkit-scrollbar {
+    width: 8px;
+}
+
+.teacherassistant-fullpage-messages-wrapper::-webkit-scrollbar-track {
+    background: #f0f0f0;
+}
+
+.teacherassistant-fullpage-messages-wrapper::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+.teacherassistant-fullpage-messages-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
+
+/* Responsive for fullpage */
+@media (max-width: 768px) {
+    .teacherassistant-fullpage-container {
+        height: calc(100vh - 200px);
+    }
+
+    .teacherassistant-fullpage-messages-wrapper {
+        padding: 20px;
+    }
+
+    .teacherassistant-fullpage-input-wrapper {
+        padding: 16px 20px;
+    }
+
+    .teacherassistant-fullpage-message {
+        max-width: 85%;
+    }
+}
