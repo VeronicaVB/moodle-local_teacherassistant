@@ -10,7 +10,7 @@ A Moodle local plugin to assist teachers with their daily tasks.
 
 ## Features
 
-- [Add your features here]
+- TODO
 
 ## Requirements
 
@@ -22,4 +22,4 @@ GPL v3 or later
 
 ## Author
 
-Your Name - 2025
+Veronica Bermegui - 2025
